@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+        <meta charset="utf-8">
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+   </head>
+   <body style="height: 100%; margin: 0">
+    <!-- Styles -->
+<style>
+#chartdiv {
+  width: 100%;
+  height: 500px;
+}
+</style>
+
+<!-- Resources -->
+<script src="https://www.amcharts.com/lib/3/ammap.js"></script>
+<script src="https://www.amcharts.com/lib/3/maps/js/usaLow.js"></script>
+<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
+<script src="https://www.amcharts.com/lib/3/plugins/dataloader/dataloader.min.js"></script>
+
+<!-- Chart code -->
+<script>
+var map = AmCharts.makeChart( "chartdiv", {
+  "type": "map",
+  "theme": "light",
+  "colorSteps": 10,
+  "titles": [
+		{
+			"text": "Visitors",
+			"size": 15
+		}
+	],	
+  "dataLoader": {
+    "url": "resources/us.json"
+  },
+
+  "areasSettings": {
+    "autoZoom": true
+  },
+
+  "valueLegend": {
+    "right": 10,
+    "minValue": "Internal",
+    "maxValue": "External"
+  }
+
+} );
+</script>
+
+<!-- HTML -->
+<div id="container" style="height: 100%">
+	<div class="row" style="margin-top:50px;">
+		<div class="col-md-4">
+			<div id="chartdiv" style="min-height:300px;width:100%;"></div>
+		</div>
+	</div>
+</div>   
+
+		
+   </body>
+</html>
